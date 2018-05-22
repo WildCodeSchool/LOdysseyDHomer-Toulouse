@@ -38,11 +38,11 @@ class SignUp extends React.Component {
       <div>
         <h1>{etatFormulaire}</h1>
         <p>Veuillez renseigner les champs ci dessous</p>
-         <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} /><br />
-         <input type="password" name="password" value={this.state.value} onChange={this.updatePasswordField} /><br />
-         <input type="password" name="checkPassword" value={this.state.value} onChange={this.updateCheckPassword} /><br />
-         <input type="text" name="name" value={this.state.value} onChange={this.updateNameField} /><br />
-         <input type="text" name="lastname" value={this.state.value} onChange={this.updateLastnameField} /><br />
+         <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} placeholder="Votre email" /><br />
+         <input type="password" name="password" value={this.state.value} onChange={this.updatePasswordField} placeholder="Mot de passe" /><br />
+         <input type="password" name="checkPassword" value={this.state.value} onChange={this.updateCheckPassword} placeholder="répétez mot de passe" /><br />
+         <input type="text" name="name" value={this.state.value} onChange={this.updateNameField} placeholder="Prénom" /><br />
+         <input type="text" name="lastname" value={this.state.value} onChange={this.updateLastnameField} placeholder="Nom" /><br />
          <input type="submit" value="Soumettre" onClick={this.handlesubmit} />
       </div>)
   }
