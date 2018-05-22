@@ -4,21 +4,60 @@ class SignUp extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      value: ''
+      FirstName: '',
+      Name:'',
+      Email:'',
+      Password:'',
+      PasswordCheck:''
     }
+
     this.updateEmailField = this.updateEmailField.bind(this)
+    this.updateFirstName = this.updateFirstName.bind(this)
+    this.updateName = this.updateName.bind(this)
+    this.updatePassword = this.updatePassword.bind(this)
+    this.updatePassword2 = this.updatePassword2.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 //updateEmailField == handleChange
+  updateFirstName(e) {
+    this.setState({FirstName: e.target.value});
+  }
+  updateName(e) {
+    this.setState({Name: e.target.value});
+  }
   updateEmailField(e) {
-    this.setState({value: e.target.value});
-    console.log('Email value updated')
+    this.setState({Email: e.target.value});
+  }
+  updatePassword(e) {
+    this.setState({Password: e.target.value});
+  }
+  updatePassword2(e) {
+    this.setState({PasswordCheck: e.target.value});
+  }
+  handleSubmit(e){
+    this.setState({handleSubmit: e.target.value})
+    e.preventDefault();
+    console.log(this.state)
   }
 
   render(){
+    const myJSON = JSON.stringify(this.state,1,1)
     return(<div>
-      <input placeholder="Votre Email" type="email" name="email" value={this.state.value} onChange={this.updateEmailField}/>
-      <h4>Vous avez saisi : {this.state.value}</h4>
-      <p></p>
+      <h1>{myJSON}</h1>
+      <p>Tu peux y arriver !</p>
+      <form onSubmit={this.handleSubmit}>
+      <input placeholder="Ton prenom" type="text" name="First_Name" value={this.state.value} onChange={this.updateFirstName}/>
+      <br/>
+      <input placeholder="Ton nom" type="text" name="Name" value={this.state.value} onChange={this.updateName}/>
+      <br/>
+      <input placeholder="Ton email" type="email" name="Email" value={this.state.value} onChange={this.updateEmailField}/>
+      <br/>
+      <input placeholder="Mot de passe" type="text" name="Password" value={this.state.value} onChange={this.updatePassword}/>
+      <br/>
+      <input placeholder="Vérification du mot de passe" type="text" name="PasswordCheck" value={this.state.value} onChange={this.updatePassword2}/>
+      <br/>
+      <input type="submit" value="Soumettre" />
+      </form>
     </div>);
   }
 }
