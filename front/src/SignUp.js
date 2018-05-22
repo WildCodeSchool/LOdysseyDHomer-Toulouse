@@ -28,6 +28,7 @@ class SignUp extends React.Component {
     this.setState({lastname: event.target.value})
   }
   handlesubmit(event) {
+    event.preventDefault()
     console.log(this.state)
   } 
   
@@ -36,6 +37,7 @@ class SignUp extends React.Component {
         
     return (
       <div>
+        <form onSubmit={this.handlesubmit}>
         <h1>{etatFormulaire}</h1>
         <p>Veuillez renseigner les champs ci dessous</p>
          <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} placeholder="Votre email" /><br />
@@ -43,7 +45,8 @@ class SignUp extends React.Component {
          <input type="password" name="checkPassword" value={this.state.value} onChange={this.updateCheckPassword} placeholder="répétez mot de passe" /><br />
          <input type="text" name="name" value={this.state.value} onChange={this.updateNameField} placeholder="Prénom" /><br />
          <input type="text" name="lastname" value={this.state.value} onChange={this.updateLastnameField} placeholder="Nom" /><br />
-         <input type="submit" value="Soumettre" onClick={this.handlesubmit} />
+         <input type="submit" value="Soumettre" />
+         </form>
       </div>)
   }
 }
