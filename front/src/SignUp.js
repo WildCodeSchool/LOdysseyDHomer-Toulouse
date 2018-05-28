@@ -4,6 +4,7 @@ class SignUp extends React.Component {
 
   constructor(props){
     super(props)
+    // this.updateField = this.updateField.bind(this)    Pour rappeler tout les champs du formulaire une seul fois
     this.updateEmailField = this.updateEmailField.bind(this)
     this.updatePasswordField = this.updatePasswordField.bind(this)
     this.updatePasswordBisField = this.updatePasswordBisField.bind(this)
@@ -12,6 +13,10 @@ class SignUp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = { email: '', password: '', passwordBis: '', name: '', lastName: ''}
   }
+// Pour rappeler tout les champs du formulaire une seul fois
+  // updateField(event) {
+  //   this.setState({[name]:event.target.value})
+  // }
 
   updateEmailField(event) {
   this.setState({ email: event.target.value})
@@ -48,11 +53,18 @@ class SignUp extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <h1>{affichage}</h1>
-          <input type="email" name="email" value={this.state.email} onChange={this.updateEmailField}/>
-          <input type="password" name="password" value={this.state.password} onChange={this.updatePasswordField}/>
-          <input type="password" name="passwordBis" value={this.state.passwordBis} onChange={this.updatePasswordBisField}/>
-          <input type="name" name="name" value={this.state.name} onChange={this.updateNameField}/>
-          <input type="name" name="lastName" value={this.state.lastName} onChange={this.updateLastNameField}/>
+          {/* exemple pour rappeler tout les champs du formulaire une seul fois */}
+          {/* <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.updatelField}/><br />  */}
+          {/* <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.updateField}/><br />
+          <input type="password" placeholder="confirm password" name="passwordBis" value={this.state.passwordBis} onChange={this.updateField}/><br />
+          <input type="name" placeholder="name" name="name" value={this.state.name} onChange={this.updateField}/><br />
+          <input type="name" placeholder="lastName" name="lastName" value={this.state.lastName} onChange={this.updateField}/><br /><br /> */}
+
+          <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.updateEmailField}/><br />
+          <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.updatePasswordField}/><br />
+          <input type="password" placeholder="confirm password" name="passwordBis" value={this.state.passwordBis} onChange={this.updatePasswordBisField}/><br />
+          <input type="name" placeholder="name" name="name" value={this.state.name} onChange={this.updateNameField}/><br />
+          <input type="name" placeholder="lastName" name="lastName" value={this.state.lastName} onChange={this.updateLastNameField}/><br /><br />
           <input type="submit" value="Soumettre" />
         </form>
       </div>
