@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import logo from './donut.png';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './donut.png'
+import './App.css'
 import SignUp from './SignUp.js'
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
         </p>
         <SignUp />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

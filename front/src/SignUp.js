@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 class SignUp extends React.Component {
-  constructor(props){
+  constructor (props) {
     super(props)
-    this.state={
+    this.state = {
       FirstName: '',
-      Name:'',
-      Email:'',
-      Password:'',
-      PasswordCheck:''
+      Name: '',
+      Email: '',
+      Password: '',
+      PasswordCheck: ''
     }
 
     this.updateEmailField = this.updateEmailField.bind(this)
@@ -17,35 +17,42 @@ class SignUp extends React.Component {
     this.updatePassword = this.updatePassword.bind(this)
     this.updatePassword2 = this.updatePassword2.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    // this.updateField = this.updateField.bind(this)
   }
-//updateEmailField == handleChange
-  updateFirstName(e) {
-    this.setState({FirstName: e.target.value});
+
+  // updateEmailField == handleChange
+  // updateField(event) {
+  // //   this.setState({[name]:event.target.value})
+  // }
+  updateFirstName (e) {
+    this.setState({FirstName: e.target.value})
   }
-  updateName(e) {
-    this.setState({Name: e.target.value});
+  updateName (e) {
+    this.setState({Name: e.target.value})
   }
-  updateEmailField(e) {
-    this.setState({Email: e.target.value});
+  updateEmailField (e) {
+    this.setState({Email: e.target.value})
   }
-  updatePassword(e) {
-    this.setState({Password: e.target.value});
+  updatePassword (e) {
+    this.setState({Password: e.target.value})
   }
-  updatePassword2(e) {
-    this.setState({PasswordCheck: e.target.value});
+  updatePassword2 (e) {
+    this.setState({PasswordCheck: e.target.value})
   }
-  handleSubmit(e){
+  handleSubmit (e) {
     this.setState({handleSubmit: e.target.value})
-    e.preventDefault();
+    e.preventDefault()
     console.log(this.state)
   }
 
-  render(){
-    const myJSON = JSON.stringify(this.state,1,1)
-    return(<div>
+  render () {
+    const myJSON = JSON.stringify(this.state, 1, 1)
+    return (<div>
       <h1>{myJSON}</h1>
       <p>Tu peux y arriver !</p>
       <form onSubmit={this.handleSubmit}>
+      {/* Mettre tous les fields en une seule commande*/}
+      {/* <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.updatelField}/><br /> */}
       <input placeholder="Ton prenom" type="text" name="First_Name" value={this.state.value} onChange={this.updateFirstName}/>
       <br/>
       <input placeholder="Ton nom" type="text" name="Name" value={this.state.value} onChange={this.updateName}/>
@@ -58,7 +65,7 @@ class SignUp extends React.Component {
       <br/>
       <input type="submit" value="Soumettre" />
       </form>
-    </div>);
+    </div>)
   }
 }
 
