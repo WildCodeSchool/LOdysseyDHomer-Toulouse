@@ -5,12 +5,14 @@ const  express  =  require('express');
 const  bodyParser  =  require('body-parser');
 const  morgan  =  require('morgan');
 const  app  =  express();
+const  authRouter = ('./routes/auth/auth.js')
 
 //je configure l'application
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended:  false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname  +  '/public'));
+app.use('auth', authRouter);
 
 //j'implémentation la partie API
 app.get("/", (req,res)=>{
