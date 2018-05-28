@@ -4,7 +4,9 @@ const  path  =  require('path');
 const  express  =  require('express');
 const  bodyParser  =  require('body-parser');
 const  morgan  =  require('morgan');
+const  authRouter = require('./routes/auth')
 const  app  =  express();
+
 
 //Config
 app.use(morgan('dev'));
@@ -14,16 +16,20 @@ app.use(express.static(__dirname  +  '/public'));
 
 //Index
 app.get("/", (req,res)=>{
-    res.send("youhou");
+    res.send("youhou")
 })
+
+app.use('/auth', authRouter)
+
 //Error 404
 app.use(function(req, res, next) {
-    var  err  =  new  Error('Not Found');
-    err.status  =  404;
-    next(err);
-});
+    var  err  =  new  Error('Méga erreur')
+    err.status  =  404
+    next(err)
+})
+
 
 //Node server
 let  server  =  app.listen( process.env.PORT  ||  3000, function(){
-    console.log('Listening on port '  +  server.address().port);
+    console.log('Listening on port '  +  server.address().port)
 });
