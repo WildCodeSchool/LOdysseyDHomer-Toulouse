@@ -14,8 +14,13 @@ class SignUp extends Component {
   render() {
     return(
       <div>
-        <h1>{this.state.email}</h1>
+        <h1>{JSON.stringify(this.state,1,1)}</h1>
         <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} />
+        <input type="password" name="" value={this.state.value} onChange={this.updateEmailField} />
+        <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} />
+        <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} />
+        <input type="email" name="email" value={this.state.value} onChange={this.updateEmailField} />
+        <input type="submit" value="Soumettre"/>
       </div>
     );
   }
