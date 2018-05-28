@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-const authRouter = require('./routes/auth')
+const authRouter = require('./routes/auth/auth')
 const app = express()
 
 app.use(morgan('dev'))
