@@ -14,13 +14,12 @@ class SignUp extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  
+
   handleChange (event) {
     const name = event.target.name
     this.setState({
-      [name] : event.target.value
+      [name]: event.target.value
     })
-       
   }
 
   handleSubmit (event) {
