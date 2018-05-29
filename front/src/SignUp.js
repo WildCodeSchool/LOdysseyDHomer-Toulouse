@@ -4,16 +4,16 @@ class SignUp extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      FirstName: '',
       Name: '',
+      LastName: '',
       Email: '',
       Password: '',
       PasswordCheck: ''
     }
 
     this.updateEmailField = this.updateEmailField.bind(this)
-    this.updateFirstName = this.updateFirstName.bind(this)
     this.updateName = this.updateName.bind(this)
+    this.updateLastName = this.updateLastName.bind(this)
     this.updatePassword = this.updatePassword.bind(this)
     this.updatePassword2 = this.updatePassword2.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -24,11 +24,11 @@ class SignUp extends React.Component {
   // updateField(event) {
   // //   this.setState({[name]:event.target.value})
   // }
-  updateFirstName (e) {
-    this.setState({FirstName: e.target.value})
-  }
   updateName (e) {
     this.setState({Name: e.target.value})
+  }
+  updateLastName (e) {
+    this.setState({LastName: e.target.value})
   }
   updateEmailField (e) {
     this.setState({Email: e.target.value})
@@ -53,9 +53,9 @@ class SignUp extends React.Component {
       <form onSubmit={this.handleSubmit}>
       {/* Mettre tous les fields en une seule commande*/}
       {/* <input type="email" placeholder="email" name="email" value={this.state.email} onChange={this.updatelField}/><br /> */}
-      <input placeholder="Ton prenom" type="text" name="First_Name" value={this.state.value} onChange={this.updateFirstName}/>
+      <input placeholder="Ton prenom" type="text" name="Name" value={this.state.value} onChange={this.updateName}/>
       <br/>
-      <input placeholder="Ton nom" type="text" name="Name" value={this.state.value} onChange={this.updateName}/>
+      <input placeholder="Ton nom" type="text" name="LastName" value={this.state.value} onChange={this.updateLastName}/>
       <br/>
       <input placeholder="Ton email" type="email" name="Email" value={this.state.value} onChange={this.updateEmailField}/>
       <br/>
