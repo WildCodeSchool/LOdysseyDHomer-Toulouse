@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 class SignUp extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: "mon@email.com",
@@ -14,15 +14,15 @@ class SignUp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({[e.target.attributes.id.value]: e.target.value})
   }
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     console.log("A new account has been created:", this.state)
   }
 
-  render() {
+  render () {
     return (
       <form className="left" onSubmit={this.handleSubmit}>
         <input id="email" type="email" placeholder="email" onChange={this.handleChange} /><br/>
