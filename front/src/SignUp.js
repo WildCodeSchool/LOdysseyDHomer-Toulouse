@@ -8,8 +8,9 @@ class SignUp extends React.Component {
       this.updateCheckPassword = this.updateCheckPassword.bind(this)
       this.updateNameField = this.updateNameField.bind(this)
       this.updateLastnameField = this.updateLastnameField.bind(this)
+      // this.updateField = this.updateField.bind(this)
       this.handlesubmit = this.handlesubmit.bind(this)
-      this.state = {email: "", password:"", checkPassword: "", name: "", lastname: ""}
+      this.state = {email: "", password:"", checkPassword: "", name: "", lastname: "", flash: ""}
   }
 
   updateEmailField(event) {
@@ -27,9 +28,29 @@ class SignUp extends React.Component {
   updateLastnameField(event) {
     this.setState({lastname: event.target.value})
   }
+  // réduction du code avec la fonction updateField
+  // updateField(event) {
+  //   const name = event.target.name
+  //   this.setState({
+  //     [name]: event.target.value
+  //   })
+  // }
+
   handlesubmit(event) {
     event.preventDefault()
     console.log(this.state)
+    fetch("/auth/signup", {
+      method:  'POST',
+      headers:  new  Headers({
+          'Content-Type':  'application/json'
+      }),
+      body:  JSON.stringify(this.state),
+    })
+      .then(res  =>  res.json())
+      .then(
+          res  =>  this.setState({"flash":  res.flash}),
+          err  =>  this.setState({"flash":  err.flash})
+      )
   } 
   
   render() {
