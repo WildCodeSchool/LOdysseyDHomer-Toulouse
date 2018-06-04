@@ -4,7 +4,13 @@ import './App.css'
 import SignUp from './SignUp.js'
 
 class App extends Component {
-  render() {
+  // constructor(props){
+  //   super(props)
+  //   this.state={
+  //     flash: ''
+  //   }
+  // }
+  render () {
     return (
       <div className="App">
         <header className="App-header">
