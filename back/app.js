@@ -3,7 +3,7 @@ const path = require("path")
 const express = require("express")
 const bodyParser = require("body-parser")
 const morgan = require("morgan")
-const authRouter = require("../routes/auth/auth")
+const authRouter = require("./routes/auth/auth")
 const app = express()
 
 app.use(morgan("dev"))
@@ -21,6 +21,6 @@ app.use(function(req, res, next) {
   next(err)
 })
 
-let server = app.listen (process.env.PORT || 3000, function () {
+let server = app.listen (process.env.PORT || 5000, function () {
   console.log ("listening on port" + server.address().port)
 })
