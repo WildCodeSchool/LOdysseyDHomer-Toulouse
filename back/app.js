@@ -15,7 +15,7 @@ app.get("/", (req,res) => {
     res.send("youhou")
 })
 
-app.use('/auth', authRouter)
+app.use('/auth', authRouter) 
 
 app.use(function(req, res, next) {
     const err = new Error('Not found')
@@ -23,6 +23,6 @@ app.use(function(req, res, next) {
     next(err)
 })
 
-let server = app.listen( process.env.PORT || 3000, function() {
+let server = app.listen( process.env.PORT || 3010, function() {
     console.log('Listening on port ' + server.address().port)
 })
