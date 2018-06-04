@@ -22,8 +22,8 @@ app.get("/", (req,res)=>{
 
 /// dans le cas d'une route non trouvée, je retourne le code 404 'Not Found'
 app.use(function(req, res, next) {
-    const  err  =  new  Error('Not Found')
-    err.status  =  404
+    const err = new Error('Not Found')
+    err.status = 404
     next(err)
 });
 

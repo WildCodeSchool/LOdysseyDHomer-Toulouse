@@ -2,18 +2,17 @@ const express  =  require('express')
 const router = express.Router()
 const  connection = require ('../../helpers/db')
 
-
 router.post('/signup', function(req, res, next){
-
 
   const sqlQuery = 'INSERT INTO users (email, password, name, lastname) VALUES (?,?,?,?)'
   const { email, password, name, lastname } = req.body
   connection.query(sqlQuery, [email, password, name, lastname], (err, result) => {
-    if (err) {
-      console.log(err)
-      return res.status(500).send('Internal Server Error')
+    if (err){
+      return res.status(500).json({ flash: err.message })
     }
-    res.send(result)
+    else{
+      return res.status(200).json({ flash: "User has been signed up !" })
+    }
   })
 })
 
