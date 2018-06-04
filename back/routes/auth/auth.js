@@ -11,11 +11,15 @@ router.post('/signup', function (req, res) {
   const { email, password, name, lastname } = req.body
 
   connection.query(user, [email, password, name, lastname], (error, result) => {
-    if(error) {
-      return res.status(500).send('Internal Server Error')
+    if (error) {
+      return res.status(500).json({ flash:  error.message })
     }
-    res.json(result)
+    else {
+      return res.status(200).json({ flash:  "Utilisateur bien ajouté !" })
+    }
   })
 })
 
 module.exports = router
+
+
