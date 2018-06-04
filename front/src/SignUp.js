@@ -4,11 +4,11 @@ class SignUp extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      email: "mon@email.com", 
-      password: "monPassw0rd",
-      passwordBis: "monPassw0rdB1s",
-      name: "James",
-      lastname: "Bond"}
+      email: 'mon@email.com',
+      password: 'monPassw0rd',
+      passwordBis: 'monPassw0rdB1s',
+      name: 'James',
+      lastname: 'Bond'}
     this.UpdateFields = this.UpdateFields.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -36,7 +36,7 @@ class SignUp extends Component {
           <input type="email" name="email" value ={this.state.email} onChange={this.UpdateFields}/><br/>
           <label htmlFor="password">Password : </label>
           <input type="password" name="password" value ={this.state.password} onChange={this.UpdateFields}/><br/>
-          <label htmlFor="passwordBis">Password : </label>
+          <label htmlFor="passwordBis">PasswordBis : </label>
           <input type="passwordBis" name="passwordBis" value ={this.state.passwordBis} onChange={this.UpdateFields}/><br/>
           <label htmlFor="name">Name : </label>
           <input type="name" name="name" value ={this.state.name} onChange={this.UpdateFields}/><br/>
