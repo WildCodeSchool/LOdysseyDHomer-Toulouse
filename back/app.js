@@ -5,7 +5,7 @@ const  express  =  require('express')
 const  bodyParser  =  require('body-parser')
 const  morgan  =  require('morgan');
 const  authRouter = require ('./routes/auth/auth')
-const connection = require ('./helpers/db')
+const  connection = require ('./helpers/db')
 const  app  =  express();
 
 //je configure l'application
@@ -28,6 +28,6 @@ app.use(function(req, res, next) {
 });
 
 //je lance le serveur node
-let  server  =  app.listen( process.env.PORT  ||  3000, function(){
+let  server  =  app.listen( process.env.PORT  ||  5000, function(){
     console.log('Listening on port '  +  server.address().port);
 });
