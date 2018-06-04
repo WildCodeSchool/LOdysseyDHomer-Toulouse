@@ -9,12 +9,12 @@ router.post('/signup', function(req, res, next) {
   const { email, password, name, lastname } = req.body
   console.log(req.body)
   connection.query(requetes, [email, password, name, lastname], (error, results) => {
-      if(error) {
-        return res.status(500).json({
-          error: error.message
-        })
+      if (error) {
+    res.status(500).json({ flash:  error.message })
       }
-      res.json(results)
+      else {
+    res.status(200).json({ flash:  'User has been signed up !' })
+      }
     })
 })
 

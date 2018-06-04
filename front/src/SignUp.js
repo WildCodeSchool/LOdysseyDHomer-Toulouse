@@ -1,7 +1,7 @@
 // eslint-disable-next-line 
- import React, { Component } from 'react';
-  import logo from './logo.svg';
-  import './App.css';
+ import React, { Component } from 'react'
+  import logo from './logo.svg'
+  import './App.css'
 
 
   class SignUp extends Component {
@@ -12,7 +12,7 @@
         password: "monPassw0rd",
         passwordBis : "samePassw0rd",
         firstname: "John",
-        lastname: "Doe"};
+        lastname: "Doe"}
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,6 +29,20 @@
       handleSubmit(event) {
         console.log(this.state)
         event.preventDefault()
+        fetch('/auth/signup',
+          {
+            method:  'POST',
+            headers:  new  Headers({
+            'Content-Type':  'application/json'
+          }),
+            body:  JSON.stringify(this.state)
+          })
+            .then(res  =>  res.json())
+            .then(
+            res  =>  this.setState({'flash':  res.flash}),
+            err  =>  this.setState({'flash':  err.flash})
+          )
+          
       }
     
       render() {
