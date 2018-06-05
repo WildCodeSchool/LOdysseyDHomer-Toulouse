@@ -8,10 +8,10 @@ router.post('/signup', function(req, res, next){
   const { email, password, name, lastname } = req.body
   connection.query(sqlQuery, [email, password, name, lastname], (err, result) => {
     if (err){
-      return res.status(500).json({ flash: err.message })
+      return res.status(500).json({ flash: "Utilisateur déjà inscrit" })
     }
     else{
-      return res.status(200).json({ flash: "User has been signed up !" })
+      return res.status(200).json({ flash: "Merci pour votre inscription" })
     }
   })
 })
