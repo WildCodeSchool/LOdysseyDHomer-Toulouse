@@ -9,7 +9,7 @@ class SignUp extends React.Component {
       lastname: '',
       email: '',
       password: '',
-      PasswordCheck: '',
+      passwordcheck: '',
       flash: ''
     }
 
@@ -39,7 +39,7 @@ class SignUp extends React.Component {
     this.setState({password: e.target.value})
   }
   updatePassword2 (e) {
-    this.setState({PasswordCheck: e.target.value})
+    this.setState({passwordcheck: e.target.value})
   }
   handleSubmit (e) {
     e.preventDefault()
@@ -75,7 +75,7 @@ class SignUp extends React.Component {
         <br/>
         <input placeholder="Mot de passe" type="password" name="password" value={this.state.value} onChange={this.updatePassword}/>
         <br/>
-        <input placeholder="Vérification du mot de passe" type="password" name="PasswordCheck" value={this.state.value} onChange={this.updatePassword2}/>
+        <input placeholder="Vérification du mot de passe" type="password" name="passwordcheck" value={this.state.value} onChange={this.updatePassword2}/>
         <br/>
         <input type="submit" value="Soumettre" />
       </form>

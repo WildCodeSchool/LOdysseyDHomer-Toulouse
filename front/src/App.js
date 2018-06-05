@@ -20,7 +20,26 @@ class App extends Component {
         <p className="App-intro">
           On est pas sortis du sable, mais au moins, on essaie !
         </p>
-        <SignUp />
+        <MuiThemeProvider>
+          <Grid container
+            alignItems='center'
+            style={{ height: '100%' }}>
+            <Grid item xs={12}>
+              <Paper
+                elevation={4}
+                style={{ margin: 32 }}>
+                <Grid container
+                  alignItems='center'
+                  justify='center'>
+                  <Grid time xs={12}
+                    alignContent='center'>
+                    <SignUp />
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+          </Grid>
+        </MuiThemeProvider>
       </div>
     )
   }
