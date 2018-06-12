@@ -4,11 +4,12 @@ class SignUp extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      email: 'mon@email.com',
-      password: 'monPassw0rd',
-      passwordBis: 'monPassw0rdB1s',
-      name: 'James',
-      lastname: 'Bond'}
+      email: '',
+      password: '',
+      passwordBis: '',
+      name: '',
+      lastname: '',
+      flash: ''}
     this.UpdateFields = this.UpdateFields.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -22,15 +23,26 @@ class SignUp extends Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    console.log(this.state)
+    fetch('/auth/signup', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify(this.state),
+    })
+      .then(res => res.json())
+      .then(
+        res => this.setState({'flash': res.flash}),
+        err => this.setState({'flash': err.flash})
+      )
   }
 
   render () {
+    const affichage = JSON.stringify(this.state, 1, 1)
     return (
       <div>
-        <h1>{this.state.name} {this.state.lastname}</h1>
-        <h2>  {this.state.email}</h2>
-        <h3> {this.state.password} {this.state.passwordBis} </h3><br/>
+
+        <h1>{affichage}</h1><br/>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">E-mail : </label>
           <input type="email" name="email" value ={this.state.email} onChange={this.UpdateFields}/><br/>

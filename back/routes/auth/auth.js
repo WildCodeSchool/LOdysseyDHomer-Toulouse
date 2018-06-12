@@ -12,11 +12,14 @@ router.post('/signup', function(req, res) {
     // const query = `INSERT INTO users(email, password, name, lastname) VALUES ('${email}', '${password}', '${name}', '${lastname}')`
     const query = `INSERT INTO users(email, password, name, lastname) VALUES (?,?,?,?)`
     connection.query(query, [email, password, name, lastname], function(error, results, fields) {
-        if(error) {
-            console.error(error)
-            return res.status(500).end();
+        if (error) {
+            return res.status(500).json({ flash:  error.message });
         }
-        res.send('I am in POST signup');
+        
+        else {
+            return res.status(200).json({ flash:  "User has been signed up !" });
+        }
+        
     });
     // res.send(req.body);
 });
